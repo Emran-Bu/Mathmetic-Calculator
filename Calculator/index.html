@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+
+    <div class="contain">
+        <div class="cont">
+            <h1>Calculator</h1>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="calculator">
+
+            <div class="screen-div">
+
+                <form action="">
+                    <input class="screen" type="text" name="" id="">
+                </form>
+
+            </div>
+
+            <div class="buttons">
+                <div class="operators">
+                    <button class="btn" data-num="+">+</button>
+                    <button class="btn" data-num="-">-</button>
+                    <button class="btn" data-num="*">*</button>
+                    <button class="btn" data-num="/">/</button>
+                    <button class="btn" data-num="%">%</button>
+                </div>
+
+                <div class="leftSide">
+                    <div>
+                        <button class="btn" data-num="7">7</button>
+                        <button class="btn" data-num="8">8</button>
+                        <button class="btn" data-num="9">9</button>
+                    </div>
+    
+                    <div>
+                        <button class="btn" data-num="4">4</button>
+                        <button class="btn" data-num="5">5</button>
+                        <button class="btn" data-num="6">6</button>
+                    </div>
+    
+                    <div>
+                        <button class="btn" data-num="1">1</button>
+                        <button class="btn" data-num="2">2</button>
+                        <button class="btn" data-num="3">3</button>
+                    </div>
+    
+                    <div>
+                        
+                        <button class="btn dot" data-num=".">  .</button>
+                        <button class="btn zero" data-num="0">0</button>
+                        <button class="clear">C</button>
+                    </div>
+                </div>
+
+                <button class="equal">=</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        let screen = document.querySelector('.screen')
+        let btn = document.querySelectorAll('.btn')
+        let clear = document.querySelector('.clear')
+        let equal = document.querySelector('.equal')
+        let modulas = document.querySelector('.modulas')
+
+        btn.forEach(function(button) {
+            button.addEventListener('click', function (e) {
+                let value = e.target.dataset.num;
+                screen.value +=  value;
+            })
+        })
+
+        equal.addEventListener('click', function (e) {
+            if (screen.value === "") {
+                screen.value = "Please Enter a value";
+            } else{
+                let answer = eval(screen.value);
+                screen.value = answer
+            }
+        })
+
+        clear.addEventListener('click', function(e){
+            screen.value = '';
+        })
+    </script>
+</body>
+</html>
